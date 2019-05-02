@@ -28,7 +28,7 @@
 %% =============================================================================
 start(Node) ->
     State = #state{ node = Node },
-    case net_kernel:connect(Node) of
+    case net_kernel:connect_node(Node) of
 	true ->
 	    ViewPid = entop_view:start(State#state{ connected = true }),
 	    control(ViewPid);

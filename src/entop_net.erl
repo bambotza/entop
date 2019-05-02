@@ -29,7 +29,7 @@ fetch_data(Node, Module) ->
     timer:tc(rpc, call, [Node, Module, get_data, []]).
 
 reconnect(Parent, Node) ->
-    case net_kernel:connect(Node) of
+    case net_kernel:connect_node(Node) of
 	true ->
 	    Parent ! {nodeup, Node};
 	false ->
